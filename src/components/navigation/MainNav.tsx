@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Crown, Clock, Trophy, Users } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Link } from "react-router-dom";
 
 interface MainNavProps {
   activeSection: string;
@@ -13,7 +14,7 @@ export function MainNav({ activeSection, onSectionChange }: MainNavProps) {
 
   const navItems = [
     { id: "home", label: "Home", icon: Crown },
-    { id: "judge", label: "Judge Beers", icon: Trophy, special: true },
+    // Removed judge beer item here
     { id: "breweries", label: "Breweries", icon: Users },
     { id: "timeline", label: "Timeline", icon: Clock },
     { id: "awards", label: "Awards", icon: Trophy },
@@ -28,13 +29,20 @@ export function MainNav({ activeSection, onSectionChange }: MainNavProps) {
     <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between px-4">
         {/* Logo and Title */}
-        <div className="flex items-center space-x-3">
-          <Crown className="h-8 w-8 text-festival-gold" />
-          <div>
-            <h1 className="text-xl font-bold text-festival-crown">Beer Crown 2025</h1>
-            <p className="text-xs text-muted-foreground hidden sm:block">Cambodian Craft Beer Association</p>
+
+        <Link to="/">
+          <div className="flex items-center space-x-3">
+            <Crown className="h-8 w-8 text-festival-gold" />
+            <div>
+              <h1 className="text-xl font-bold text-festival-crown">
+                Beer Crown 2025
+              </h1>
+              <p className="text-xs text-muted-foreground hidden sm:block">
+                Cambodian Craft Beer Association
+              </p>
+            </div>
           </div>
-        </div>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
@@ -43,10 +51,16 @@ export function MainNav({ activeSection, onSectionChange }: MainNavProps) {
             return (
               <Button
                 key={item.id}
-                variant={item.special ? "judge" : activeSection === item.id ? "default" : "ghost"}
+                // variant={
+                //   item.special
+                //     ? "judge"
+                //     : activeSection === item.id
+                //     ? "default"
+                //     : "ghost"
+                // }
                 size="sm"
                 onClick={() => handleNavClick(item.id)}
-                className={item.special ? "animate-pulse-slow" : ""}
+                // className={item.special ? "animate-pulse-slow" : ""}
               >
                 <Icon className="h-4 w-4" />
                 {item.label}
@@ -68,7 +82,9 @@ export function MainNav({ activeSection, onSectionChange }: MainNavProps) {
                 <div className="flex items-center space-x-3">
                   <Crown className="h-6 w-6 text-festival-gold" />
                   <div>
-                    <h2 className="font-bold text-festival-crown">Beer Crown 2025</h2>
+                    <h2 className="font-bold text-festival-crown">
+                      Beer Crown 2025
+                    </h2>
                     <p className="text-xs text-muted-foreground">CBAC</p>
                   </div>
                 </div>
@@ -79,8 +95,16 @@ export function MainNav({ activeSection, onSectionChange }: MainNavProps) {
                   return (
                     <Button
                       key={item.id}
-                      variant={item.special ? "judge" : activeSection === item.id ? "default" : "ghost"}
-                      className={`w-full justify-start ${item.special ? "animate-pulse-slow" : ""}`}
+                      // variant={
+                      //   item.special
+                      //     ? "judge"
+                      //     : activeSection === item.id
+                      //     ? "default"
+                      //     : "ghost"
+                      // }
+                      // className={`w-full justify-start ${
+                      //   item.special ? "animate-pulse-slow" : ""
+                      // }`}
                       onClick={() => handleNavClick(item.id)}
                     >
                       <Icon className="h-4 w-4 mr-3" />
