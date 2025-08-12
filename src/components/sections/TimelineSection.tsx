@@ -63,13 +63,13 @@ const timelineEvents = [
 
 const getEventColor = (type: string) => {
   switch (type) {
-    case "start": return "bg-green-500";
+    case "start": return "bg-blue-500";
     case "announcement": return "bg-blue-500";
-    case "entertainment": return "bg-purple-500";
-    case "judging": return "bg-festival-crown";
-    case "awards": return "bg-festival-gold";
-    case "end": return "bg-gray-500";
-    default: return "bg-festival-bronze";
+    case "entertainment": return "bg-blue-500";
+    case "judging": return "bg-blue-500";
+    case "awards": return "bg-blue-500";
+    case "end": return "bg-blue-500";
+    default: return "bg-blue-500";
   }
 };
 
@@ -100,12 +100,7 @@ export function TimelineSection() {
           
           {/* Current Time Display */}
           <Card className="bg-gradient-hero text-primary-foreground inline-block">
-            <CardContent className="p-4">
-              <div className="flex items-center space-x-2">
-                <Clock className="h-5 w-5" />
-                <span className="font-semibold">Current Time: {getCurrentTime()}</span>
-              </div>
-            </CardContent>
+          
           </Card>
         </div>
 
@@ -148,7 +143,7 @@ export function TimelineSection() {
 
         {/* Important Notes */}
         <div className="mt-8 space-y-4">
-          <Card className="bg-gradient-crown text-primary-foreground">
+          <Card className="bg-white text-primary-foreground">
             <CardContent className="p-6">
               <h3 className="text-xl font-bold mb-3 flex items-center">
                 <Star className="h-6 w-6 mr-2" />

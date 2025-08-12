@@ -28,6 +28,10 @@ export function HeroSection({ onJudgeClick }: HeroSectionProps) {
           </p>
 
           {/* CTA Button */}
+<<<<<<< HEAD
+=======
+          {/*  */}
+>>>>>>> cd08744c84757920cf8af2b104ecb0ffa605c816
         </div>
 
         {/* Event Info Cards */}
@@ -40,7 +44,11 @@ export function HeroSection({ onJudgeClick }: HeroSectionProps) {
             </CardContent>
           </Card>
 
+<<<<<<< HEAD
           <Card className="bg-amber-50 border border-amber-400">
+=======
+          <Card className="bg-gradient-card border-festival-gold/20">
+>>>>>>> cd08744c84757920cf8af2b104ecb0ffa605c816
             <CardContent className="p-6 text-center">
               <Clock className="h-8 w-8 mx-auto mb-3 text-amber-600" />
               <h3 className="font-semibold mb-2 text-amber-700">Time</h3>
@@ -48,11 +56,19 @@ export function HeroSection({ onJudgeClick }: HeroSectionProps) {
             </CardContent>
           </Card>
 
+<<<<<<< HEAD
           <Card className="bg-amber-50 border border-amber-400">
             <CardContent className="p-6 text-center">
               <MapPin className="h-8 w-8 mx-auto mb-3 text-amber-600" />
               <h3 className="font-semibold mb-2 text-amber-700">Location</h3>
               <p className="text-amber-700">
+=======
+          <Card className="bg-gradient-card border-festival-gold/20">
+            <CardContent className="p-6 text-center">
+              <MapPin className="h-8 w-8 mx-auto mb-3 text-festival-gold" />
+              <h3 className="font-semibold mb-2">Location</h3>
+              <p className="text-muted-foreground">
+>>>>>>> cd08744c84757920cf8af2b104ecb0ffa605c816
                 Botanico Craft Beer Garden
                 <br />
                 Street 29
@@ -71,28 +87,44 @@ export function HeroSection({ onJudgeClick }: HeroSectionProps) {
               <Button
                 variant="outline"
                 size="sm"
+<<<<<<< HEAD
                 className="bg-amber-200 border-amber-400 text-amber-800 hover:bg-amber-300"
+=======
+                className="bg-white/10 border-white/20 text-white hover:bg-white/20"
+>>>>>>> cd08744c84757920cf8af2b104ecb0ffa605c816
               >
                 11 Beers to Judge
               </Button>
               <Button
                 variant="outline"
                 size="sm"
+<<<<<<< HEAD
                 className="bg-amber-200 border-amber-400 text-amber-800 hover:bg-amber-300"
+=======
+                className="bg-white/10 border-white/20 text-white hover:bg-white/20"
+>>>>>>> cd08744c84757920cf8af2b104ecb0ffa605c816
               >
                 11 Breweries
               </Button>
               <Button
                 variant="outline"
                 size="sm"
+<<<<<<< HEAD
                 className="bg-amber-200 border-amber-400 text-amber-800 hover:bg-amber-300"
+=======
+                className="bg-white/10 border-white/20 text-white hover:bg-white/20"
+>>>>>>> cd08744c84757920cf8af2b104ecb0ffa605c816
               >
                 3 Award Types
               </Button>
               <Button
                 variant="outline"
                 size="sm"
+<<<<<<< HEAD
                 className="bg-amber-200 border-amber-400 text-amber-800 hover:bg-amber-300"
+=======
+                className="bg-white/10 border-white/20 text-white hover:bg-white/20"
+>>>>>>> cd08744c84757920cf8af2b104ecb0ffa605c816
               >
                 Live Timeline
               </Button>
@@ -102,9 +134,15 @@ export function HeroSection({ onJudgeClick }: HeroSectionProps) {
 
         {/* Organizer Info */}
         <div className="text-center mt-8">
+<<<<<<< HEAD
           <p className="text-amber-700">
             Organized by{" "}
             <span className="font-semibold text-amber-600">
+=======
+          <p className="text-muted-foreground">
+            Organized by{" "}
+            <span className="font-semibold text-festival-crown">
+>>>>>>> cd08744c84757920cf8af2b104ecb0ffa605c816
               CBAC - Cambodian Craft Beer Association
             </span>
           </p>

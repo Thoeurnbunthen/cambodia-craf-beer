@@ -4,7 +4,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Badge } from "@/components/ui/badge";
-import { Star, ArrowLeft, ArrowRight, CheckCircle, Trophy, Beer } from "lucide-react";
+import {
+  Star,
+  ArrowLeft,
+  ArrowRight,
+  CheckCircle,
+  Trophy,
+  Beer,
+} from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const beers = [
@@ -37,21 +44,21 @@ export function JudgeSection() {
 
   // Load saved ratings from localStorage
   useEffect(() => {
-    const saved = localStorage.getItem('beerRatings');
+    const saved = localStorage.getItem("beerRatings");
     if (saved) {
       try {
         const parsedRatings = JSON.parse(saved);
         setRatings(parsedRatings);
         setJudgedBeers(new Set(Object.keys(parsedRatings).map(Number)));
       } catch (error) {
-        console.error('Error loading saved ratings:', error);
+        console.error("Error loading saved ratings:", error);
       }
     }
   }, []);
 
   // Save ratings to localStorage
   const saveRatings = (newRatings: Record<number, Rating>) => {
-    localStorage.setItem('beerRatings', JSON.stringify(newRatings));
+    localStorage.setItem("beerRatings", JSON.stringify(newRatings));
   };
 
   const beer = beers[currentBeer];
@@ -79,7 +86,7 @@ export function JudgeSection() {
     const newJudgedBeers = new Set(judgedBeers);
     newJudgedBeers.add(beer.id);
     setJudgedBeers(newJudgedBeers);
-    
+
     toast({
       title: "Rating Submitted!",
       description: `Thank you for rating ${beer.name} from ${beer.brewery}`,
@@ -92,11 +99,12 @@ export function JudgeSection() {
   };
 
   const getTotalScore = () => {
-    const total = currentRating.appearance[0] + 
-                 currentRating.aroma[0] + 
-                 currentRating.flavor[0] + 
-                 currentRating.mouthfeel[0] + 
-                 currentRating.overall[0];
+    const total =
+      currentRating.appearance[0] +
+      currentRating.aroma[0] +
+      currentRating.flavor[0] +
+      currentRating.mouthfeel[0] +
+      currentRating.overall[0];
     return total;
   };
 
@@ -111,8 +119,12 @@ export function JudgeSection() {
       <div className="container max-w-2xl mx-auto">
         {/* Header */}
         <div className="text-center mb-6">
-          <h2 className="text-3xl font-bold text-festival-crown mb-2">Beer Judging</h2>
-          <p className="text-muted-foreground">Rate each beer on a scale of 1-10</p>
+          <h2 className="text-3xl font-bold text-festival-crown mb-2">
+            Beer Judging
+          </h2>
+          <p className="text-muted-foreground">
+            Rate each beer on a scale of 1-10
+          </p>
         </div>
 
         {/* Progress */}
@@ -126,7 +138,7 @@ export function JudgeSection() {
             </span>
           </div>
           <div className="w-full bg-secondary rounded-full h-2">
-            <div 
+            <div
               className="bg-gradient-hero h-2 rounded-full transition-all duration-300"
               style={{ width: `${((currentBeer + 1) / beers.length) * 100}%` }}
             />
@@ -150,7 +162,7 @@ export function JudgeSection() {
               </Badge>
             )}
           </CardHeader>
-          
+
           <CardContent className="space-y-6">
             {/* Rating Categories */}
             {Object.entries(currentRating).map(([category, value]) => (
@@ -166,7 +178,9 @@ export function JudgeSection() {
                 </div>
                 <Slider
                   value={value}
-                  onValueChange={(newValue) => updateRating(category as keyof Rating, newValue)}
+                  onValueChange={(newValue) =>
+                    updateRating(category as keyof Rating, newValue)
+                  }
                   max={10}
                   min={1}
                   step={1}
@@ -183,16 +197,20 @@ export function JudgeSection() {
             <div className="border-t pt-4">
               <div className="flex justify-between items-center">
                 <span className="text-lg font-semibold">Total Score:</span>
-                <span className={`text-2xl font-bold ${getScoreColor(getTotalScore())}`}>
+                <span
+                  className={`text-2xl font-bold ${getScoreColor(
+                    getTotalScore()
+                  )}`}
+                >
                   {getTotalScore()}/50
                 </span>
               </div>
             </div>
 
             {/* Submit Button */}
-            <Button 
-              variant="judge" 
-              size="lg" 
+            <Button
+              variant="judge"
+              size="lg"
               className="w-full"
               onClick={submitRating}
             >
@@ -212,14 +230,16 @@ export function JudgeSection() {
             <ArrowLeft className="h-4 w-4 mr-2" />
             Previous
           </Button>
-          
+
           <div className="flex space-x-2">
             {beers.map((_, index) => (
               <Button
                 key={index}
                 variant={index === currentBeer ? "default" : "outline"}
                 size="icon"
-                className={`w-8 h-8 ${judgedBeers.has(beers[index].id) ? 'bg-festival-gold' : ''}`}
+                className={`w-8 h-8 ${
+                  judgedBeers.has(beers[index].id) ? "bg-festival-gold" : ""
+                }`}
                 onClick={() => setCurrentBeer(index)}
               >
                 {index + 1}
@@ -229,7 +249,9 @@ export function JudgeSection() {
 
           <Button
             variant="outline"
-            onClick={() => setCurrentBeer(Math.min(beers.length - 1, currentBeer + 1))}
+            onClick={() =>
+              setCurrentBeer(Math.min(beers.length - 1, currentBeer + 1))
+            }
             disabled={currentBeer === beers.length - 1}
           >
             Next
@@ -243,7 +265,10 @@ export function JudgeSection() {
             <CardContent className="p-6 text-center">
               <Trophy className="h-12 w-12 mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-2">Congratulations!</h3>
-              <p>You've rated all {beers.length} beers. Thank you for your participation!</p>
+              <p>
+                You've rated all {beers.length} beers. Thank you for your
+                participation!
+              </p>
             </CardContent>
           </Card>
         )}
